@@ -1,0 +1,148 @@
+\documentclass{beamer}
+\usepackage{ngerman}
+\usepackage{graphicx}
+\usepackage{listings}
+\usetheme{Madrid}
+\title{Algorithmen I Tutorium}
+\author{Florian Tobias Schandinat}
+\date{28.04.2011}
+\institute{FTS}
+\lstset{basicstyle=\small\ttfamily,tabsize=4,showstringspaces=false}
+
+
+\begin{document}
+
+
+\begin{frame}
+\frametitle{Willkommen}
+\begin{block}{Algorithmen I Tutorium 19}
+\begin{description}
+\item[Wer?] Florian Tobias Schandinat\\
+\item[Wo?] 50.34, Raum -118\\
+\item[Wann?] jeden Donnerstag 15:45-17:15
+\end{description}
+\end{block}
+
+\begin{block}{Material online}
+http://github.com/schandinat/algorithmen1\_ss11
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Nachtrag: TSP}
+\begin{block}{Brute-force L"osung}
+\pause
+$\Rightarrow O(n!)$
+$$O(2^n) \subset O(n!) \subset O(n^n)$$
+\end{block}
+
+\pause
+
+\begin{exampleblock}{Beispiel}
+Ein Logistikunternehmen beliefert t"aglich auf einer Tour 99 Adressen. Die Route daf"ur berechnet es mittels diesem Algorithmus innerhalb einer Stunde. Wie lange dauert die Berechnung ungef"ahr wenn es stattdessen 100 Adressen beliefert? (Annahme: nur asymptotischer Faktor relevant)\\
+\pause
+$\Rightarrow$ \alert{ca 100 Stunden}\\
+$\Longrightarrow$ h"aufig nur n"aherungsweise L"osung
+\end{exampleblock}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Rekursive Algorithmen}
+\begin{block}{Mastertheorem}
+$$T(n) = 1, n = 1$$
+$$T(n) = a \cdot T\left(\frac{n}{b}\right) + f(n), n > 1$$
+\begin{eqnarray*}
+\theta(n^{log_b a})&,& f(f) = O(n^{log_b(a)-\epsilon}), \epsilon > 0\\
+\theta(n^{log_b a} \cdot log(n))&,& f(n) = \theta(n^{log_b a}log n)\\
+\theta(f(n))&,& f(n) = \Omega(n^{log_b (a)+\epsilon}), \epsilon > 0
+\end{eqnarray*}
+\pause
+\alert{F"ur die Klausur auswendig lernen!}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Sortieren -- Zusammenfassung}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Suchen}
+\begin{block}{Lineare Suche}
+\begin{itemize}
+\item geht immer
+\item O(n)
+\end{itemize}
+\end{block}
+
+\pause
+
+\begin{block}{Bin"are Suche}
+\begin{itemize}
+\item Sortierung erforderlich
+\item random access
+\item O(log(n))
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Arrays \tiny(Felder)}
+bounded $\leftrightarrow$ unbounded
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Stacks and Queues \tiny(Stapel und Schlangen)}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Listen}
+\begin{block}{Eigenschaften}
+\begin{itemize}
+\item einfach verkettet $\leftrightarrow$ doppelt verkettet
+\item unsortiert $\leftrightarrow$ sortiert
+\item nicht-zyklisch $\leftrightarrow$ zyklisch
+\item W"achterelement
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]
+\frametitle{Praxisbeispiel -- Eigenschaften}
+\begin{block}{Linux-2.6.38-rc7: include/linux/list.h}
+\begin{lstlisting}
+static inline void list_replace(struct list_head *old,
+				struct list_head *new)
+{
+	new->next = old->next;
+	new->next->prev = new;
+	new->prev = old->prev;
+	new->prev->next = new;
+}
+
+static inline int list_empty(const struct list_head 
+				*head)
+{
+	return head->next == head;
+}
+\end{lstlisting}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ende}
+\begin{center}
+\textbf{\Huge Vielen Dank f"ur die Aufmerksamkeit!}
+\end{center}
+\end{frame}
+
+
+\end{document}
