@@ -55,17 +55,12 @@ $$T(n) = 1, n = 1$$
 $$T(n) = a \cdot T\left(\frac{n}{b}\right) + f(n), n > 1$$
 \begin{eqnarray*}
 \theta(n^{log_b a})&,& f(f) = O(n^{log_b(a)-\epsilon}), \epsilon > 0\\
-\theta(n^{log_b a} \cdot log(n))&,& f(n) = \theta(n^{log_b a}log n)\\
+\theta(n^{log_b a} \cdot log(n))&,& f(n) = \theta(n^{log_b a})\\
 \theta(f(n))&,& f(n) = \Omega(n^{log_b (a)+\epsilon}), \epsilon > 0
 \end{eqnarray*}
 \pause
 \alert{F"ur die Klausur auswendig lernen!}
 \end{block}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Sortieren -- Zusammenfassung}
 \end{frame}
 
 
@@ -92,12 +87,42 @@ $$T(n) = a \cdot T\left(\frac{n}{b}\right) + f(n), n > 1$$
 
 \begin{frame}
 \frametitle{Arrays \tiny(Felder)}
-bounded $\leftrightarrow$ unbounded
+\begin{block}{Eigenschaften}
+\begin{itemize}
+\item bounded $\leftrightarrow$ unbounded
+\item Zugriff auf beliebiges Element: $O(1)$
+\item L"oschen/Einf"ugen an beliebiger Stelle: \pause$O(n)$
+\end{itemize}
+\end{block}
 \end{frame}
 
 
 \begin{frame}
 \frametitle{Stacks and Queues \tiny(Stapel und Schlangen)}
+\begin{block}{Stack}
+\begin{itemize}
+\item push, pop
+\pause
+\item LIFO
+\end{itemize}
+\end{block}
+
+\pause
+
+\begin{block}{Queue}
+\begin{itemize}
+\item enqueue, dequeue
+\pause
+\item FIFO
+\end{itemize}
+\textbf{Konzept des Ringpuffers wird h"aufig verwendet} (Multithreading/Hardwaretreiber)
+\end{block}
+
+\pause
+
+\begin{alertblock}{Implementieung}
+Alternativ: Implementierung als (einfach) verkettete Liste
+\end{alertblock}
 \end{frame}
 
 
