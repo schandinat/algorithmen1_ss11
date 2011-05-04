@@ -1,0 +1,188 @@
+\documentclass{beamer}
+\usepackage{ngerman}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usetheme{Madrid}
+\title{Algorithmen I Tutorium}
+\author{Florian Tobias Schandinat}
+\date{05.05.2011}
+\institute{FTS}
+\lstset{basicstyle=\small\ttfamily,tabsize=4,showstringspaces=false}
+
+
+\begin{document}
+
+
+\begin{frame}
+\frametitle{Willkommen}
+\begin{block}{Algorithmen I Tutorium 19}
+\begin{description}
+\item[Wer?] Florian Tobias Schandinat\\
+\item[Wo?] 50.34, Raum -118\\
+\item[Wann?] jeden Donnerstag 15:45-17:15
+\end{description}
+\end{block}
+
+\begin{block}{Material online}
+http://github.com/schandinat/algorithmen1\_ss11
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{1. "Ubungsblatt}
+\begin{block}{$O(1) \not\subseteq O(0)$}
+\pause
+Annahme: $\exists c \in \mathbb{R_+} \exists n_0 \in \mathbb{N}: 1 \leq c \cdot 0$ \hspace{0.5cm} $\forall n > n_0$\pause\\
+da $\alert{1 \not= 0} = c \cdot 0$\hspace{0.5cm} $\forall c \in \mathbb{R} \forall n \in \mathbb{N}$\\
+$\Longrightarrow O(1) \not\subseteq O(0)$\\[1cm]
+\pause
+Anschaulich:
+\begin{description}
+\item[$O(0)$] der Codeabschnitt wird \alert{nicht} ausgef"uhrt
+\item[$O(1)$] der Codeabschnitt wird $k$-Mal ausgef"uhrt, $k \in \mathbb{N}_+$
+\end{description}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Erinnerung: Mastertheorem}
+\begin{block}{Mastertheorem}
+$$T(n) = 1, n = 1$$
+$$T(n) = a \cdot T\left(\frac{n}{b}\right) + f(n), n > 1$$
+\begin{eqnarray*}
+\theta(n^{log_b a})&,& f(n) = O(n^{log_b(a)-\epsilon}), \epsilon > 0\\
+\theta(n^{log_b a} \cdot log(n))&,& f(n) = \theta(n^{log_b a})\\
+\theta(f(n))&,& f(n) = \Omega(n^{log_b (a)+\epsilon}), \epsilon > 0
+\end{eqnarray*}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Mastertheorem -- "Ubung 1}
+\begin{exampleblock}{binary search}
+PROCEDURE BinaereSuche(A, v, l, r)\\
+if $l > r$ then\\
+\hspace{1cm}return NIL\\
+$m = \lfloor\frac{l + r}{2}\rfloor$\\
+if $v == A[m]$ then\\
+\hspace{1cm}return m\\
+else if $v > A[m]$ then\\
+\hspace{1cm}return BinaereSuche(A, v, m + 1, r)\\
+else\\
+\hspace{1cm}return BinaereSuche(A, v, l, m - 1)\\
+end if
+\end{exampleblock}
+
+\pause
+
+\begin{block}{}
+$T(n) = 1 \cdot T\left(\frac{n}{2}\right) + 1$\pause\\
+$\Longrightarrow \theta(log(n))$
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Mastertheorem -- "Ubung 2}
+\begin{exampleblock}{binary tree traversal}
+PROCEDURE tree(n)\\
+if $n.left \not= NIL$\\
+\hspace{1cm}tree(n.left)\\
+if $n.right \not= NIL$\\
+\hspace{1cm}tree(n.right)
+\end{exampleblock}
+
+\pause
+
+\begin{block}{}
+$T(n) = 2 \cdot T\left(\frac{n}{2}\right) + 1$\pause\\
+$\Longrightarrow \theta(n)$
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Mastertheorem -- Weitere "Ubungen}
+\begin{block}{}
+$T(n) = 2 \cdot T\left(\frac{n}{2}\right) + n$\pause\\
+$\Longrightarrow \theta(n \cdot log(n))$
+\end{block}
+
+\pause
+
+\begin{block}{}
+$T(n) = 4 \cdot T\left(\frac{n}{2}\right) + n^3$\pause\\
+$\Longrightarrow \theta(n^3)$
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Amortisierte Analyse}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Hashing -- Grundlagen}
+\begin{block}{}
+\begin{description}
+\item[U] Universalmenge
+\item[K] Schl"usselmenge
+\item[h] Hashfunktion\\$h : U \rightarrow K$
+\end{description}
+\pause
+\textbf{Hinweis:} Bei $\left|K\right| < \left|U\right|$ \alert{immer} Kollisionen m"oglich 
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Hashing -- Kollisionsaufl"osung}
+\begin{block}{}
+\begin{itemize}
+\item Verkettung
+\item Offene Adressierung
+\begin{itemize}
+\item linear
+\item quadratisch
+\item doppeltes Hashing
+\end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Hashing -- "Ubung}
+\begin{exampleblock}{$U = \{ i \in \mathbb{N}_0 | i \leq 20 \}, K = \{ i \in \mathbb{N}_0 | i \leq 6 \}, h(k) = k \mod 7$}
+Skizziere die folgenden Operationen mit Verkettung; offener Adressierung mit linearer Konfliktaufl"osung
+\begin{itemize}
+\item INSERT(2)
+\item INSERT(3)
+\item INSERT(4)\pause
+\item INSERT(10)\pause
+\item INSERT(11)\pause
+\item DELETE(4)\pause
+\item SEARCH(2)\pause
+\item SEARCH(5)\pause
+\item SEARCH(11)
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ende}
+\begin{center}
+\textbf{\Huge Vielen Dank f"ur die Aufmerksamkeit!}
+\end{center}
+\end{frame}
+
+
+\end{document}
+
