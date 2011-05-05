@@ -42,7 +42,7 @@ $\Longrightarrow O(1) \not\subseteq O(0)$\\[1cm]
 Anschaulich:
 \begin{description}
 \item[$O(0)$] der Codeabschnitt wird \alert{nicht} ausgef"uhrt
-\item[$O(1)$] der Codeabschnitt wird $k$-Mal ausgef"uhrt, $k \in \mathbb{N}_+$
+\item[$O(1)$] der Codeabschnitt wird $k$-Mal ausgef"uhrt, $k \in \mathbb{N}_0$
 \end{description}
 \end{block}
 \end{frame}
@@ -124,6 +124,11 @@ $\Longrightarrow \theta(n^3)$
 
 \begin{frame}
 \frametitle{Amortisierte Analyse}
+\pause
+\begin{exampleblock}{"Ubung}
+$$T(\phi(n)) = 1 , \not\exists i \in \mathbb{N} : i^2 = n$$
+$$T(\phi(n)) = n , \exists i \in \mathbb{N} : i^2 = n$$
+\end{exampleblock}
 \end{frame}
 
 
@@ -148,8 +153,8 @@ $\Longrightarrow \theta(n^3)$
 \item Verkettung
 \item Offene Adressierung
 \begin{itemize}
-\item linear
-\item quadratisch
+\item lineares Sondieren
+\item quadratisches Sondieren
 \item doppeltes Hashing
 \end{itemize}
 \end{itemize}
