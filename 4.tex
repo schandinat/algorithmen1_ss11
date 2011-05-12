@@ -1,0 +1,152 @@
+\documentclass{beamer}
+\usepackage{ngerman}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usetheme{Madrid}
+\title{Algorithmen I Tutorium}
+\author{Florian Tobias Schandinat}
+\date{12.05.2011}
+\institute{FTS}
+\lstset{basicstyle=\small\ttfamily,tabsize=4,showstringspaces=false}
+
+
+\begin{document}
+
+
+\begin{frame}
+\frametitle{Willkommen}
+\begin{block}{Algorithmen I Tutorium 19}
+\begin{description}
+\item[Wer?] Florian Tobias Schandinat\\
+\item[Wo?] 50.34, Raum -118\\
+\item[Wann?] jeden Donnerstag 15:45-17:15
+\end{description}
+\end{block}
+
+\begin{block}{Material online}
+http://github.com/schandinat/algorithmen1\_ss11
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{R"uckblick: Hashing}
+\begin{alertblock}{Grundprinzip}
+Abbildung einer (gro"sen) Menge auf eine (kleinere) Menge
+\end{alertblock}
+
+\pause
+
+\begin{exampleblock}{Beispiel 1: Nicht voll-assoziative Caches}
+unterer Adressteil
+\end{exampleblock}
+
+\pause
+
+\begin{exampleblock}{Beispiel 2: GIT}
+SHA1\\
+MB $\longrightarrow$ Bytes
+\end{exampleblock}
+
+\pause
+
+\begin{block}{Zusatz}
+Rehashing
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Abschluss: Hashing}
+\begin{center}
+\textbf{\Huge Fragen?}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Bin"arer Baum}
+
+\begin{block}{Darstellung im Array A[i]}
+Beziehungen \textbf{(sofern vorhanden)}
+\pause
+\begin{description}
+\item[Elternknoten] $A[\lfloor\frac{i}{2}\rfloor]$
+\item[linkes Kind] $A[2 \cdot i]$
+\item[rechtes Kind] $A[2 \cdot i + 1]$
+\end{description}
+\end{block}
+
+\pause
+
+\begin{exampleblock}{Wie sieht der zugeh"orige Baum aus?}
+\begin{tabular}{ | c | c | c | c | c | c | }
+\hline
+5 & 2 & 7 & 3 & 8 & 4\\
+\hline
+\end{tabular}
+\end{exampleblock}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Heaps}
+\begin{block}{Eigenschaft}
+Schneller Zugriff auf das kleinste/gr"o"ste Element
+\end{block}
+
+\pause
+
+\begin{alertblock}{Ist ein absteigend/aufsteigend sortiertes Array ein Maximum/Minimum-Heap?}
+\pause
+Ja!
+\end{alertblock}
+
+\pause
+
+\begin{exampleblock}{"Ubung: Maximum-Heap}
+\begin{itemize}
+\item Bauen Sie einen Maximum-Heap aus
+\begin{tabular}{ | c | c | c | c | c | c | }
+\hline
+5 & 2 & 7 & 3 & 8 & 4\\
+\hline
+\end{tabular}
+
+\pause
+
+\item F"ugen Sie der Reihe nach folgenden Elemnte ein: 1, 9
+
+\pause
+
+\item Entfernen Sie das Maximum
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Heaps -- Zusammenfassung}
+\begin{block}{Heap Operationen}
+\begin{description}[EXTRACT-MAXIMUM]
+\item[BUILD-MAX-HEAP] $O(n)$
+\item[INSERT] $O(log(n))$
+\item[MAXIMUM] $O(1)$
+\item[EXTRACT-MAXIMUM] $O(log(n))$
+\end{description}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ende}
+\begin{center}
+\textbf{\Huge Vielen Dank f"ur die Aufmerksamkeit!}
+\end{center}
+\end{frame}
+
+
+\end{document}
+
