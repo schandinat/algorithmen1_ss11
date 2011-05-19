@@ -1,0 +1,137 @@
+\documentclass{beamer}
+\usepackage{ngerman}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usetheme{Madrid}
+\title{Algorithmen I Tutorium}
+\author{Florian Tobias Schandinat}
+\date{19.05.2011}
+\institute{FTS}
+\lstset{basicstyle=\small\ttfamily,tabsize=4,showstringspaces=false}
+
+
+\begin{document}
+
+
+\begin{frame}
+\frametitle{Willkommen}
+\begin{block}{Algorithmen I Tutorium 19}
+\begin{description}
+\item[Wer?] Florian Tobias Schandinat\\
+\item[Wo?] 50.34, Raum -118\\
+\item[Wann?] jeden Donnerstag 15:45-17:15
+\end{description}
+\end{block}
+
+\begin{block}{Material online}
+http://github.com/schandinat/algorithmen1\_ss11
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{B"aume}
+\begin{block}{Grundlagen}
+\begin{itemize}
+\item Wurzel, Bl"atter
+\item azyklisch
+\item Weg von Wurzel zu jedem Knoten eindeutig
+\end{itemize}
+\end{block}
+
+\pause
+
+\begin{exampleblock}{Vielf"altig einsetzbar}
+\begin{itemize}
+\item 5 + 4 * 3 - 2 * (1 - 2)\pause
+\item \{42, 23, 1, 2, 3, 99\}\pause
+\item \{Paul, Peter, Luise, Anna\}\pause
+\item ...
+\end{itemize}
+\end{exampleblock}
+
+\pause
+
+\begin{block}{Suchb"aume}
+Knoten erf"ullen eine Ordnungsrelation
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Bin"are B"aume}
+\begin{alertblock}{Einschr"ankung}
+Maximal 2 Kinder/Knoten
+\end{alertblock}
+
+\pause
+
+\begin{block}{Darstellung im Array}
+Beziehungen von A[i] \textbf{(sofern vorhanden)}
+\pause
+\begin{description}
+\item[Elternknoten] $A[\lfloor\frac{i}{2}\rfloor]$
+\item[linkes Kind] $A[2 \cdot i]$
+\item[rechtes Kind] $A[2 \cdot i + 1]$
+\end{description}
+\end{block}
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Rot-Schwarz B"aume}
+\begin{alertblock}{Eigenschaften}
+\begin{itemize}
+\item jeder Knoten hat genau eine Farbe (rot oder schwarz)
+\item Wurzel und Bl"atter (NIL) sind schwarz
+\item Knoten rot $\Rightarrow$ Kinder schwarz
+\item Anzahl schwarzer Knoten im Pfad zu jedem Blatt gleich
+\end{itemize}
+$\Longrightarrow$ nur wenig unbalanciert
+\end{alertblock}
+
+\begin{block}{Rotation}
+\begin{itemize}
+\item Linksrotation
+\item Rechtsrotation
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Wiederholung}
+\begin{enumerate}
+\item Bubblesort
+\item Selectionsort
+\item Insertionsort
+\item Mergesort
+\item Quicksort
+\item Radixsort
+\item Heapsort
+\item Lineare Suche
+\item Bin"are Suche
+\item Einfach verkettete Liste
+\item Doppelt verkettete Liste
+\item Stack
+\item Queue
+\item Deque
+\item Master-Theorem
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ende}
+\begin{center}
+\textbf{\Huge Vielen Dank f"ur die Aufmerksamkeit!}
+\end{center}
+\end{frame}
+
+
+\end{document}
+
