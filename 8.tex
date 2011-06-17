@@ -1,0 +1,113 @@
+\documentclass{beamer}
+\usepackage{ngerman}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usetheme{Madrid}
+\title{Algorithmen I Tutorium}
+\author{Florian Tobias Schandinat}
+\date{16.06.2011}
+\institute{FTS}
+\lstset{basicstyle=\small\ttfamily,tabsize=4,showstringspaces=false}
+
+
+\begin{document}
+
+
+\begin{frame}
+\frametitle{Willkommen}
+\begin{block}{Algorithmen I Tutorium 19}
+\begin{description}
+\item[Wer?] Florian Tobias Schandinat\\
+\item[Wo?] 50.34, Raum -118\\
+\item[Wann?] jeden Donnerstag 15:45-17:15
+\end{description}
+\end{block}
+
+\begin{block}{Material online}
+http://github.com/schandinat/algorithmen1\_ss11
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{K"urzeste Pfade}
+
+\begin{block}{Ausgangssituation}
+\begin{itemize}
+\item Graph mit Kantengewichten
+\item Startpunkt s
+\item \textbf{Gesucht:} k"urzester Pfad von s zu jedem Knoten\\(Pfad mit kleinster Summe an Kantengewichten)
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{K"urzeste Pfade -- Hilfsmittel}
+
+\begin{block}{Relaxation}
+\textbf{Gegeben:} Kante (u,v)\\
+\textbf{Frage:} Ist der Pfad nach v "uber u k"urzer als der bisher gefundene?\\
+$\longrightarrow$ k"urzeren Pfad "ubernehmen
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Bellman-Ford-Algorithmus}
+\begin{block}{Eigenschaften}
+\begin{itemize}
+\item erlaubt negative Kantengewichte
+\item gibt false bei negativen Zyklen zur"uck
+\item Laufzeit: O($|V| \cdot |E|$)
+\end{itemize}
+\end{block}
+
+\begin{alertblock}{Grundkonzept}
+Relaxiere die Kanten $|V| - 1$-Mal in einer beliebigen, festen Reihenfolge
+\end{alertblock}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{DAG-Shortest-Path}
+\begin{block}{Eigenschaften}
+\begin{itemize}
+\item erlaubt negative Kantengewichte
+\item verbietet Zyklen
+\item Laufzeit: O($|V| + |E|$)
+\end{itemize}
+\end{block}
+
+\begin{alertblock}{Grundkonzept}
+In topologischer Reihenfolge der Knoten ausgehende Kanten relaxieren
+\end{alertblock}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Dijkstra-Algorithmus}
+\begin{block}{Eigenschaften}
+\begin{itemize}
+\item keine negativen Kantengewichte
+\item Laufzeit: O($|V|lg|V| + |E|$)
+\end{itemize}
+\end{block}
+
+\begin{alertblock}{Grundkonzept}
+Betrachte immer noch nicht betrachteten Knoten mit k"urzestem Pfad
+\end{alertblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ende}
+\begin{center}
+\textbf{\Huge Vielen Dank f"ur die Aufmerksamkeit!}
+\end{center}
+\end{frame}
+
+
+\end{document}
+
