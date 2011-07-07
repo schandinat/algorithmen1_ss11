@@ -1,0 +1,108 @@
+\documentclass{beamer}
+\usepackage{ngerman}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usetheme{Madrid}
+\title{Algorithmen I Tutorium}
+\author{Florian Tobias Schandinat}
+\date{30.06.2011}
+\institute{FTS}
+\lstset{basicstyle=\small\ttfamily,tabsize=4,showstringspaces=false}
+
+
+\begin{document}
+
+
+\begin{frame}
+\frametitle{Willkommen}
+\begin{block}{Algorithmen I Tutorium 19}
+\begin{description}
+\item[Wer?] Florian Tobias Schandinat\\
+\item[Wo?] 50.34, Raum -118\\
+\item[Wann?] jeden Donnerstag 15:45-17:15
+\end{description}
+\end{block}
+
+\begin{block}{Material online}
+http://github.com/schandinat/algorithmen1\_ss11
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Disjunkte Mengen}
+
+\begin{block}{Operationen}
+\begin{itemize}
+\item MAKE-SET -- Menge anlegen
+\item FIND-SET -- Repr"asentant von Menge abfragen
+\item UNION -- Mengen vereinigen
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Minimale Spannb"aume (MST)}
+
+\begin{block}{Ausgangssituation}
+\begin{itemize}
+\item ungerichteter zusammenh"angender Graph
+\item Kantengewichte
+\item \textbf{Gesucht:} Kanten, die alle Knoten verbinden, so dass Gesamtgewicht davon minimal
+\end{itemize}
+\end{block}
+
+\pause
+
+\begin{alertblock}{Algorithmus von Kruskal}
+F"uge Kante mit geringstem Gewicht hinzu, die zwei Partitionen verbindet
+\end{alertblock}
+
+
+\begin{alertblock}{Algorithmus von Prim}
+F"uge Kante mit geringstem Gewicht hinzu, die aus der Menge der erreichbaren Knoten hinausf"uhrt
+\end{alertblock}
+
+
+\begin{block}{}
+Laufzeit: O(E lg V)
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Dynamische Programmierung}
+\begin{alertblock}{Grundkonzept}
+Zwischenergebnisse speichern und wiederverwenden
+\end{alertblock}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Greedy-Algorithmen}
+\begin{block}{Eigenschaften}
+\begin{itemize}
+\item liefern f"ur viele Probleme keine optimale L"osung
+\end{itemize}
+\end{block}
+
+
+\begin{alertblock}{Grundkonzept}
+Zu jedem Zeitpunkt die Entscheidung treffen, die dann am Optimalsten erscheint
+\end{alertblock}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ende}
+\begin{center}
+\textbf{\Huge Vielen Dank f"ur die Aufmerksamkeit!}
+\end{center}
+\end{frame}
+
+
+\end{document}
+

@@ -1,0 +1,162 @@
+\documentclass{beamer}
+\usepackage{ngerman}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usetheme{Madrid}
+\title{Algorithmen I Tutorium}
+\author{Florian Tobias Schandinat}
+\date{07.07.2011}
+\institute{FTS}
+\lstset{basicstyle=\small\ttfamily,tabsize=4,showstringspaces=false}
+
+
+\begin{document}
+
+
+\begin{frame}
+\frametitle{Willkommen}
+\begin{block}{Algorithmen I Tutorium 19}
+\begin{description}
+\item[Wer?] Florian Tobias Schandinat\\
+\item[Wo?] 50.34, Raum -118\\
+\item[Wann?] jeden Donnerstag 15:45-17:15
+\end{description}
+\end{block}
+
+\begin{block}{Material online}
+http://github.com/schandinat/algorithmen1\_ss11
+\end{block}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Dynamische Programmierung}
+\begin{alertblock}{Grundkonzept}
+Zwischenergebnisse speichern und wiederverwenden
+\end{alertblock}
+
+\begin{exampleblock}{CYK-Algorithmus}
+Ist das Wort $w = bbabaa$ aus $S$ mittels der folgenden Regeln ableitbar
+\begin{itemize}
+\item $S \rightarrow AB | BC$
+\item $A \rightarrow BA | a$
+\item $B \rightarrow CC | b$
+\item $C \rightarrow AB | a$
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Dynamische Programmierung}
+\begin{exampleblock}{CYK-Algorithmus}
+Ist das Wort $w = bbabaa$ aus $S$ mittels der folgenden Regeln ableitbar
+\begin{itemize}
+\item $S \rightarrow AB | BC$
+\item $A \rightarrow BA | a$
+\item $B \rightarrow CC | b$
+\item $C \rightarrow AB | a$
+\end{itemize}
+
+\begin{tabular}{l|c|c|c|c|c|c}
+b & \{B\} & \{\} & \{A\} & \{S,C\} & \{B\} & \{A,\alert{S}\}\\
+b & \{B\} & \{S,A\} & \{S,C\} & \{B\} & \{A,S\}\\
+a & \{A,C\} & \{S,C\} & \{B\} & \{S,A\}\\
+b & \{B\} & \{A,S\} & \{\}\\
+a & \{A,C\} & \{B\}\\
+a & \{A,C\}
+\end{tabular}\\
+$\Longrightarrow$ ja\\
+{\scriptsize http://de.wikipedia.org/wiki/Cocke-Younger-Kasami-Algorithmus}
+\end{exampleblock}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Greedy-Algorithmen}
+\begin{block}{Eigenschaften}
+\begin{itemize}
+\item liefern f"ur viele Probleme keine optimale L"osung
+\end{itemize}
+\end{block}
+
+
+\begin{alertblock}{Grundkonzept}
+Zu jedem Zeitpunkt die Entscheidung treffen, die dann am Optimalsten erscheint
+\end{alertblock}
+
+
+\begin{exampleblock}{Beispiele}
+\begin{itemize}
+\item Dijkstra-Algorithmus
+\item Algorithmus von Kruskal
+\item Heuristik zur L"osung des TSP (nearest neighbour algorithm)
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Wiederholung}
+\begin{center}
+\textbf{\Huge "Ubungen}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Sortieren}
+\begin{exampleblock}{}
+Sortieren Sie `hans', `peter', `fritz', `horst' und `anna' alphabetisch aufsteigend mittels Radix-Sort, wobei die Namen jeweils mittels ` ' auf die gleiche L"ange aufgef"ullt werden und ` ' kleiner als alle Buchstaben sein soll.
+
+\pause
+
+\begin{itemize}
+\item Was unterscheidet Radix-Sort von den anderen Sortierverfahren, die Sie kennen?
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Heaps}
+\begin{exampleblock}{}
+Sortieren Sie 42, 13, 7, 21, 46, 35, 2 mittels Heapsort so dass das Ergebnis eine aufsteigende Reihenfolge hat.
+
+\pause
+
+\begin{itemize}
+\item Was bedeutet inplace?
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Hashing}
+\begin{exampleblock}{}
+Es ist die Hashfunktion
+$$h(x) = x\ mod\ 7$$
+gegeben. Verwenden Sie offene Adressierung mit linearem Sondieren zur Konfliktaufl"osung.
+\begin{itemize}
+\item F"ugen Sie $0, 7, 1, 14, 6$ ein.
+\item Entfernen Sie die $1$.
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Ende}
+\begin{center}
+\textbf{\Huge Vielen Dank f"ur die Aufmerksamkeit!}
+\end{center}
+\end{frame}
+
+
+\end{document}
+
